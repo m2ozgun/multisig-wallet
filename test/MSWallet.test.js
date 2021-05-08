@@ -2,18 +2,18 @@ const { expect } = require("chai")
 const chai = require("chai")
 chai.use(require("chai-as-promised"))
 
-const MultiSigWallet = artifacts.require("MultiSigWallet")
+const MSWallet = artifacts.require("MSWallet")
 const BN = web3.utils.BN
 const chaiBN = require('chai-bn')(BN);
 chai.use(chaiBN);
 
-contract("MultiSigWallet", accounts => {
+contract("Multi Sig Wallet Contract", accounts => {
     const owners = [accounts[0], accounts[1], accounts[2]]
     const numConfirmationsRequired = 2
 
     let wallet
     beforeEach(async () => {
-        wallet = await MultiSigWallet.new(owners, numConfirmationsRequired)
+        wallet = await MSWallet.new(owners, numConfirmationsRequired)
     })
 
     describe("execute()", () => {

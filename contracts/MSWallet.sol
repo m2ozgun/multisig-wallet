@@ -1,6 +1,6 @@
 pragma solidity ^0.8.4;
 
-contract MultiSigWallet {
+contract MSWallet {
     event Deposit(address indexed _sender,uint _amount, uint _balance);
     event Submit (
         address indexed _owner,
