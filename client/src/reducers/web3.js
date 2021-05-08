@@ -19,7 +19,7 @@ const web3Reducer = (state = DEFAULT_STATE, action) => {
       const { account, web3 } = action
       return {
         ...state,
-        web3: web3 | state.web3,
+        web3: web3 || state.web3,
         account,
       }
     case UPDATE_NETWORK:

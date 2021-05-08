@@ -5,7 +5,6 @@ import React, {
   useEffect,
   useMemo,
 } from 'react'
-import Web3 from 'web3'
 import { subscribeToAccount, subscribeToNetwork } from '../api/web3'
 import web3Reducer, { DEFAULT_STATE } from '../reducers/web3'
 import { UPDATE_ACCOUNT, UPDATE_NETWORK } from '../actions/types'
@@ -22,8 +21,9 @@ export function useWeb3Context() {
 
 export const Web3Provider = ({ children }) => {
   const [state, dispatch] = useReducer(web3Reducer, DEFAULT_STATE)
-
   function updateAccount(data) {
+    console.log('data', data)
+
     dispatch({
       type: UPDATE_ACCOUNT,
       ...data,
@@ -70,11 +70,11 @@ export function Web3Updater() {
   useEffect(() => {
     if (state.web3) {
       const unsubscribe = subscribeToAccount(state.web3, (error, account) => {
-          if(error){
-              console.log(error)
-          }
-          if(account !== undefined && account !== state.account) {
-            window.location.reload()
+        if (error) {
+          console.log(error)
+        }
+        if (account !== undefined && account !== state.account) {
+          window.location.reload()
         }
       })
 
