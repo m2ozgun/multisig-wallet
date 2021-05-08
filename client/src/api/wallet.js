@@ -1,11 +1,11 @@
 import Web3 from 'web3'
 import BN from 'bn.js'
 import TruffleContract from '@truffle/contract'
-import WalletArtifact from '../contracts/MultiSigWallet.json'
+import WalletArtifact from '../contracts/MSWallet.json'
 
 const wallet = TruffleContract(WalletArtifact)
 
-export const get = async (web3) => {
+export const getWallet = async (web3) => {
   wallet.setProvider(web3.currentProvider)
 
   const walletInstance = await wallet.deployed()

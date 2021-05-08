@@ -1,19 +1,12 @@
-import React, {
-  useReducer,
-  createContext,
-  useContext,
-  useEffect,
-  useMemo,
-} from 'react'
 import { UPDATE_ACCOUNT, UPDATE_NETWORK } from '../actions/types'
 
-export const DEFAULT_STATE = {
+export const WEB3_DEFAULT_STATE = {
   account: '',
   web3: null,
   network: 0,
 }
 
-const web3Reducer = (state = DEFAULT_STATE, action) => {
+const web3Reducer = (state = WEB3_DEFAULT_STATE, action) => {
   switch (action.type) {
     case UPDATE_ACCOUNT:
       const { account, web3 } = action

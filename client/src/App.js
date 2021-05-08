@@ -3,6 +3,7 @@ import { unlockAccount } from './api/web3'
 import useAsync from './components/useAsync'
 import { useWeb3Context } from './contexts/web3'
 // import { useEffect } from 'react'
+import Wallet from './components/Wallet'
 import {
   Button,
   Box,
@@ -60,6 +61,7 @@ function App() {
             <Stack spacing={3} my={4}>
               <Text>NetworkID: {network}</Text>
               <Text>Account: {account}</Text>
+              <Wallet />
             </Stack>
           ) : (
             <Stack>

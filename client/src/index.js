@@ -4,14 +4,18 @@ import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { Web3Provider, Web3Updater } from './contexts/web3'
+import { WalletProvider, WalletUpdater } from './contexts/wallet'
 import { ChakraProvider } from '@chakra-ui/react'
 
 ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider>
       <Web3Provider>
-        <App />
-        <Web3Updater />
+        <WalletProvider>
+          <App />
+          <Web3Updater />
+          <WalletUpdater />
+        </WalletProvider>
       </Web3Provider>
     </ChakraProvider>
   </React.StrictMode>,

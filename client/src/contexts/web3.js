@@ -6,11 +6,11 @@ import React, {
   useMemo,
 } from 'react'
 import { subscribeToAccount, subscribeToNetwork } from '../api/web3'
-import web3Reducer, { DEFAULT_STATE } from '../reducers/web3'
+import web3Reducer, { WEB3_DEFAULT_STATE } from '../reducers/web3'
 import { UPDATE_ACCOUNT, UPDATE_NETWORK } from '../actions/types'
 
 const Web3Context = createContext({
-  state: DEFAULT_STATE,
+  state: WEB3_DEFAULT_STATE,
   updateAccount: (_data) => {},
   updateNetwork: (_data) => {},
 })
@@ -20,7 +20,7 @@ export function useWeb3Context() {
 }
 
 export const Web3Provider = ({ children }) => {
-  const [state, dispatch] = useReducer(web3Reducer, DEFAULT_STATE)
+  const [state, dispatch] = useReducer(web3Reducer, WEB3_DEFAULT_STATE)
   function updateAccount(data) {
     console.log('data', data)
 
