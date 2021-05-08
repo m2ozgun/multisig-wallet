@@ -1,13 +1,11 @@
-import logo from './logo.svg'
 import './App.css'
 import { unlockAccount } from './api/web3'
 import useAsync from './components/useAsync'
 import { useWeb3Context } from './contexts/web3'
-import { useEffect } from 'react'
+// import { useEffect } from 'react'
 import {
   Button,
   Box,
-  CSSReset,
   Heading,
   Text,
   Alert,
@@ -16,7 +14,7 @@ import {
   Divider,
 } from '@chakra-ui/react'
 
-const useMountEffect = (fn) => useEffect(fn, [])
+// const useMountEffect = (fn) => useEffect(fn, [])
 
 function App() {
   const { pending, error, execute } = useAsync(unlockAccount)
@@ -52,8 +50,6 @@ function App() {
 
   return (
     <div className="App">
-      <CSSReset />
-
       <Box w={500} p={4} m="20px auto">
         <Heading as="h1" size="xl" textAlign="center">
           Multi Sig Wallet
