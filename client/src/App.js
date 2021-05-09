@@ -13,6 +13,9 @@ import {
   AlertIcon,
   Stack,
   Divider,
+  Flex,
+  HStack,
+  Link,
 } from '@chakra-ui/react'
 
 // const useMountEffect = (fn) => useEffect(fn, [])
@@ -36,7 +39,6 @@ function App() {
   //   })
   // })
 
-
   async function connnectToMetamask() {
     const { error, data } = await execute(null)
 
@@ -56,15 +58,17 @@ function App() {
         </Heading>
         <Divider my={4} />
         <Box m="20px auto" my={4}>
-          <Heading as="h2" size="xl">
-            Info
-          </Heading>
           {account ? (
-            <Stack spacing={3} my={4}>
-              <Text>NetworkID: {network}</Text>
-              <Text>Account: {account}</Text>
-              <Wallet />
-            </Stack>
+            <div>
+              <Heading as="h2" size="xl">
+                Info
+              </Heading>
+              <Stack spacing={3} my={4}>
+                <Text>NetworkID: {network}</Text>
+                <Text>Account: {account}</Text>
+                <Wallet />
+              </Stack>
+            </div>
           ) : (
             <Stack>
               <Alert
@@ -81,6 +85,22 @@ function App() {
           )}
         </Box>
       </Box>
+
+      <Flex
+        bg="white"
+        width="100%"
+        justifyContent="center"
+        alignItems="center"
+        direction="column"
+        padding={4}
+      >
+        <HStack spacing={8} mb={8}>
+          <Text color="gray.500">
+            <Link href="https://ozgun.me/">Mert Ozgun</Link> |{' '}
+            <Link href="https://github.com/m2ozgun/multisigwallet">Github</Link>
+          </Text>
+        </HStack>
+      </Flex>
     </div>
   )
 }
