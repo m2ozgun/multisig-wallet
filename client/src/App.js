@@ -16,15 +16,12 @@ import {
   Link,
 } from '@chakra-ui/react'
 
-
 function App() {
-  const { pending, error, execute } = useAsync(unlockAccount)
+  const { execute } = useAsync(unlockAccount)
   const {
     state: { account, network },
     updateAccount,
   } = useWeb3Context()
-
-
 
   async function connnectToMetamask() {
     const { error, data } = await execute(null)

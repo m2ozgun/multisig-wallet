@@ -1,25 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useWalletContext } from '../contexts/wallet'
-import {
-  Button,
-  Box,
-  Heading,
-  Text,
-  Alert,
-  AlertIcon,
-  Stack,
-  Divider,
-  UnorderedList,
-  ListItem,
-  Table,
-  Tr,
-  Tbody,
-} from '@chakra-ui/react'
+import { Box, Heading, Text, Stack } from '@chakra-ui/react'
 import CreateTransaction from './CreateTransaction'
 import Transactions from './Transactions'
 function Wallet() {
   const {
-    state: { address, balance, owners, numConfirmationsRequired, transactionCount, transactions },
+    state: {
+      address,
+      balance,
+      owners,
+      numConfirmationsRequired,
+      transactions,
+    },
   } = useWalletContext()
 
   return (

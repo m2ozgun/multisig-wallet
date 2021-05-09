@@ -5,17 +5,9 @@ import * as walletApi from '../api/wallet'
 import {
   Button,
   Box,
-  Heading,
   Text,
-  Alert,
-  AlertIcon,
-  Stack,
   Divider,
-  UnorderedList,
-  ListItem,
-  Table,
-  Tr,
-  Tbody,
+
 } from '@chakra-ui/react'
 
 const TransactionActions = ({ transaction, numConfirmationsRequired }) => {

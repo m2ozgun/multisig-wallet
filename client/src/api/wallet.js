@@ -1,5 +1,3 @@
-import Web3 from 'web3'
-import BN from 'bn.js'
 import TruffleContract from '@truffle/contract'
 import WalletArtifact from '../contracts/MSWallet.json'
 

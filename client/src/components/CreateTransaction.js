@@ -9,7 +9,7 @@ const CreateTransaction = () => {
     state: { web3, account },
   } = useWeb3Context()
   const [inputs, setInputs] = useState({ to: '', value: 0, data: '' })
-  const { pending, error, execute } = useAsync(async (params) => {
+  const { pending,  execute } = useAsync(async (params) => {
     if (!web3) {
       throw new Error('No web3 instance available.')
     }
@@ -29,7 +29,7 @@ const CreateTransaction = () => {
       return
     }
 
-    const { error } = await execute({
+    await execute({
       ...inputs,
       value: inputs.value.toString(),
     })

@@ -1,5 +1,3 @@
-import Web3 from 'web3'
-import BN from 'bn.js'
 import React, {
   useReducer,
   useEffect,
@@ -103,7 +101,7 @@ export function WalletUpdater() {
     if (web3) {
       get(web3, account)
     }
-  }, [web3])
+  }, [web3, setContract, account])
 
   useEffect(() => {
     if (web3 && state.address) {
@@ -147,6 +145,13 @@ export function WalletUpdater() {
         }
       })
     }
-  }, [])
+  }, [
+    account,
+    addTransaction,
+    updateTransaction,
+    updateBalance,
+    web3,
+    state.address,
+  ])
   return null
 }
