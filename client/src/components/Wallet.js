@@ -11,25 +11,42 @@ import {
   Divider,
   UnorderedList,
   ListItem,
+  Table,
+  Tr,
+  Tbody,
 } from '@chakra-ui/react'
+import CreateTransaction from './CreateTransaction'
+import Transactions from './Transactions'
 function Wallet() {
   const {
-    state: { address, balance, owners },
+    state: { address, balance, owners, numConfirmationsRequired, transactionCount, transactions },
   } = useWalletContext()
-
-  console.log(address, balance, owners)
-  const [open, openModal] = useState(false)
 
   return (
     <Stack spacing={3} my={4}>
       <Text>Contract: {address}</Text>
-      <Text>Balance: {balance}</Text>
-      <Heading as="h2">Owners</Heading>
-      <UnorderedList>
+      <Text>Contract Balance: {balance} wei</Text>
+      <Heading as="h2" size="xl">
+        Owners
+      </Heading>
+      <Box>
         {owners.map((owner, i) => (
-          <ListItem key={i}>{owner}</ListItem>
+          <Text key={i}>{owner}</Text>
         ))}
-      </UnorderedList>
+      </Box>
+      <Heading as="h2" size="xl">
+        Create Transaction
+      </Heading>
+
+      <CreateTransaction />
+
+      <Heading as="h2" size="xl">
+        Transactions
+      </Heading>
+      <Transactions
+        numConfirmationsRequired={numConfirmationsRequired}
+        data={transactions}
+      ></Transactions>
     </Stack>
   )
 }

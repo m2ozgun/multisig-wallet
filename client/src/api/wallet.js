@@ -5,7 +5,7 @@ import WalletArtifact from '../contracts/MSWallet.json'
 
 const wallet = TruffleContract(WalletArtifact)
 
-export const getWallet = async (web3) => {
+export const getWallet = async (web3, account) => {
   wallet.setProvider(web3.currentProvider)
 
   const walletInstance = await wallet.deployed()
@@ -33,7 +33,7 @@ export const getWallet = async (web3) => {
       executed,
       numConfirmations,
     } = await walletInstance.getTransaction(txIndex)
-    const isConfirmed = await walletInstance.isConfirmed(txIndex)
+    const isConfirmed = await walletInstance.isConfirmed(txIndex, account)
 
     transactions.push({
       txIndex,

@@ -36,7 +36,6 @@ function App() {
   //   })
   // })
 
-  console.log('account', account)
 
   async function connnectToMetamask() {
     const { error, data } = await execute(null)
@@ -57,6 +56,9 @@ function App() {
         </Heading>
         <Divider my={4} />
         <Box m="20px auto" my={4}>
+          <Heading as="h2" size="xl">
+            Info
+          </Heading>
           {account ? (
             <Stack spacing={3} my={4}>
               <Text>NetworkID: {network}</Text>

@@ -22,8 +22,6 @@ export function useWeb3Context() {
 export const Web3Provider = ({ children }) => {
   const [state, dispatch] = useReducer(web3Reducer, WEB3_DEFAULT_STATE)
   function updateAccount(data) {
-    console.log('data', data)
-
     dispatch({
       type: UPDATE_ACCOUNT,
       ...data,

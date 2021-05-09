@@ -82,7 +82,6 @@ export function WalletUpdater() {
   const {
     state: { web3, account },
   } = useWeb3Context()
-  console.log('web3', web3)
   const {
     state,
     setContract,
@@ -93,7 +92,6 @@ export function WalletUpdater() {
 
   useEffect(() => {
     async function get(web3, account) {
-      console.log(web3, account)
       try {
         const data = await getWallet(web3, account)
         setContract(data)
@@ -110,6 +108,7 @@ export function WalletUpdater() {
   useEffect(() => {
     if (web3 && state.address) {
       return subscribe(web3, state.address, (err, log) => {
+        console.log('log', log)
         if (err) {
           console.log(err)
         } else if (log) {
