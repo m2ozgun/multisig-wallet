@@ -1,8 +1,6 @@
-import './App.css'
 import { unlockAccount } from './api/web3'
 import useAsync from './components/useAsync'
 import { useWeb3Context } from './contexts/web3'
-// import { useEffect } from 'react'
 import Wallet from './components/Wallet'
 import {
   Button,
@@ -18,7 +16,6 @@ import {
   Link,
 } from '@chakra-ui/react'
 
-// const useMountEffect = (fn) => useEffect(fn, [])
 
 function App() {
   const { pending, error, execute } = useAsync(unlockAccount)
@@ -27,17 +24,7 @@ function App() {
     updateAccount,
   } = useWeb3Context()
 
-  // fetch web3
-  // useMountEffect(() => {
-  //   execute(null).then(({ error, data }) => {
-  //     if (error) {
-  //       console.error(error)
-  //     }
-  //     if (data) {
-  //       updateAccount(data)
-  //     }
-  //   })
-  // })
+
 
   async function connnectToMetamask() {
     const { error, data } = await execute(null)
