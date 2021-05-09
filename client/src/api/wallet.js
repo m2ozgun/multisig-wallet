@@ -90,16 +90,16 @@ export const executeTransaction = async (web3, account, params) => {
   await walletInstance.execute(txIndex, { from: account })
 }
 
-export function subscribe(web3, address, callback) {
-  const walletInstance = new web3.eth.Contract(wallet.abi, address)
+export async  function subscribe(web3, address, callback) {
+  const walletInstance = await new web3.eth.Contract(wallet.abi, address);
 
-  const res = walletInstance.allEvents((error, log) => {
+  const res = walletInstance.events.allEvents((error, log) => {
     if (error) {
       callback(error, null)
     } else if (log) {
       callback(null, log)
     }
-  })
+  });
 
   return () => res.unsubscribe()
 }
