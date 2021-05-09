@@ -1,5 +1,5 @@
 # Multisig Wallet
-
+![Demo](screenshot.png)
 ## Demo
 https://naughty-franklin-041795.netlify.app/
 * Demo is deployed as 2-3 multisig wallet (2 of 3 addresses should approve to execute a transaction)
